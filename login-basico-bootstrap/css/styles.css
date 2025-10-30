@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(15, 139, 98);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.login{
+    width: 350px;
+    height: 450px;
+    border: 1px solid #444;
+    border-radius: 25px;
+    margin: auto ;
+}
+.logo{
+    width: 130px;
+}
+.btn-login{
+    background-color: #33691E;
+    border-radius:#33691E ;
+    color: #ffff;
+}
+.btn-login:hover{
+    color: white;
+}
+.input-group-text{
+    color: rgb(255, 255, 255);
+    background-color: #33691E;
+    height: 40px;
+    border: 0 !important;
+}
