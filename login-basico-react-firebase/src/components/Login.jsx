@@ -1,24 +1,55 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import Cat from "../assets/cat.png";
 import Robot from "../assets/robot.jpg";
 
+import appFirebase from '../credenciales';
+import {getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth';
+
+const auth = getAuth(appFirebase);
 const Login = () => {
+
+  const [registrado,setRegistrado] = useState(false)
+
+  const functAutentication = async(e)=>{
+    e.preventDefault();
+    const correo = e.target.email.value;
+    const contrasena = e.target.password.value;
+    console.log(correo);
+
+    if(registrado){
+      try{
+      await createUserWithEmailAndPassword(auth, correo, contrasena)
+      }catch{
+        alert("asegure de que la contrasea sea mayor a 8 dijitos")
+      }
+    }else{
+      try{
+      await signInWithEmailAndPassword(auth, correo, contrasena);
+      }catch(error){
+        alert("El correo o la contraseña son incorrectos")
+      }
+    }
+  }
+    
+  
+
   return (
     <div className="container">
-      <div className="row limite container-principal">
+      <div className="row container-principal">
         <div className="col-md-4 ">
           <div className="padre">
-            <div className="card card-body">
+            <div className="card card-body shadow-lg">
               <img src={Robot} alt="" className="estilo-profile" />
-              <form>
+              <form onSubmit={functAutentication} >
                 <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
+                  <label htmlFor="email" className="form-label">
                     Email address
                   </label>
                   <input
                     type="email"
                     className="form-control caja-texto"
-                    id="exampleInputEmail1"
+                    id="email"
                     aria-describedby="emailHelp"
                   />
                   <div id="emailHelp" className="form-text">
@@ -27,13 +58,13 @@ const Login = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
+                  <label htmlFor="password" className="form-label">
                     Password
                   </label>
                   <input
                     type="password"
                     className="form-control caja-texto"
-                    id="exampleInputPassword1"
+                    id="password"
                   />
                 </div>
 
@@ -48,10 +79,11 @@ const Login = () => {
                   </label>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                  Submit
+                <button type="submit" className="btn btn-primary btn-registrarse">
+                  {registrado ? "Registrate": "Iniciar Sesion"}
                 </button>
               </form>
+              <h4 className="texto">{registrado ? "Ya tienes cuenta":"No tienes cuenta"}<button className=" btn-iniciarSesion" onClick={()=>setRegistrado(!registrado)}>{registrado?"Iniciar Sesion":"Registrate"}</button></h4>
             </div>
           </div>
         </div>
