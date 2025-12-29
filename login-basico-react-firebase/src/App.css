@@ -1,0 +1,37 @@
+.padre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.tamaño-cat {
+    width: 80%;
+    height: 80vh;
+    /* margin-top: 20px; */
+    border-radius: 15px;
+}
+
+.limite {
+    border: 3px solid red;
+}
+
+
+.estilo-profile {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin: 20px auto;
+
+}
+.caja-texto{
+    border-radius: 30px;
+}
