@@ -17,3 +17,15 @@ If you are developing a production application, we recommend using TypeScript wi
 ![alt text](image.png)
 
 ![alt text](image-1.png)
+
+## Para correr el proyecto, primero instala las dependencias:
+
+```bash
+    npm install
+```
+Luego, inicia el servidor de desarrollo:
+
+```bash
+    npm run dev
+```
+Esto iniciará el servidor de desarrollo y podrás acceder a tu aplicación en `http://localhost:5173` (o el puerto que Vite asigne).

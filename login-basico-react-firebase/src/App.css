@@ -51,3 +51,7 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 5px;
 }
+.tamaño-cat,
+.card {
+  height: 88vh;
+}
